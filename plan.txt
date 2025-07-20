@@ -1,0 +1,108 @@
+**Project Specification**
+
+**Game Components**
+
+* **Screen**: A window created via `turtle.Screen()`
+* **Paddle**: A movable rectangle positioned at the bottom of the screen
+* **Ball**: A circle that bounces off walls, the paddle, and bricks
+* **Bricks**: A grid of colored rectangles arranged at the top
+* **Scoreboard**: An on-screen text display showing the player’s score
+
+---
+
+**To-Do Checklist**
+
+1. **Environment Setup**
+
+   * Install Python and import the `turtle` module
+   * Create the main script (e.g. `breakout.py`)
+
+2. **Screen Configuration**
+
+   * Define window size, background color, and title
+   * Use `tracer(0)` for manual screen updates
+
+3. **Paddle**
+
+   * Instantiate a Turtle object with shape “square” and stretch it to paddle dimensions
+   * Bind keyboard events for left/right movement
+
+4. **Ball**
+
+   * Create a Turtle circle and initialize its `dx`/`dy` velocity
+   * Implement a function to move the ball on each frame
+
+5. **Bricks**
+
+   * Loop through rows and columns to generate brick objects
+   * Store bricks in a list for easy collision checks
+
+6. **Collision Detection**
+
+   * **Ball–wall**: Reverse direction on left, right, or top collision
+   * **Ball–paddle**: Bounce upward upon contact
+   * **Ball–brick**: Hide the brick, reverse direction, and increment score
+
+7. **Scoreboard**
+
+   * Use a Turtle text object at the top of the screen
+   * Update the score whenever a brick is destroyed
+
+8. **Game Loop**
+
+   * `while True`: move the ball, check all collisions, call `screen.update()`, then pause briefly
+
+9. **Game Over / Victory**
+
+   * Display “Game Over” if the ball falls below the paddle
+   * Display “You Win!” if all bricks have been cleared
+
+10. **Optional Enhancements**
+
+    * Multiple lives or levels
+    * Sound effects
+
+---
+
+**ASCII Flowchart**
+
+
+   ┌──────────┐
+   │  START   │
+   └────┬─────┘
+        ↓
+┌───────────────────┐
+│ Initialize Screen │
+│ Paddle, Ball,     │
+│ Bricks, Score     │
+└────────┬──────────┘
+         ↓
+    ┌──────────┐
+    │ Game     │◄──────────────────────────┐
+    │ Loop     │                           │
+    └────┬─────┘                           │
+         ↓                                 │
+┌───────────────────┐                      │
+│ Move Ball         │                      │
+└────────┬──────────┘                      │
+         ↓                                 │
+┌───────────────────┐                      │
+│ Check Collisions  │                      │
+│ (walls/paddle/brick)                     │
+└────────┬──────────┘                      │
+         ↓                                 │
+┌───────────────────┐                      │
+│ Update Score /    │                      │
+│ Remove Brick      │                      │
+└────────┬──────────┘                      │
+         ↓                                 │
+┌───────────────────┐                      │
+│ screen.update()   │                      │
+└────────┬──────────┘                      │
+         ↓                                 │
+┌───────────────────┐                      │
+│ Check Game Over / │── Yes ──► End         │
+│ Win               │                      │
+└────────┬──────────┘                      │
+         ↓ No                              │
+         └──────────────────────────────────┘

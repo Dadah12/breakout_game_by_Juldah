@@ -1,0 +1,2 @@
+playsound>=1.2.2   # sound
+pygame>=2.0.0      # optional, alternative sa sound & music
